@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "./actions/posts";
 import "./App.css";
 import { RootState } from "./reducers";
 import { Post } from "./reducers/posts";
@@ -17,15 +18,6 @@ function App({ onIncrement, onDecrement }: Props) {
   const posts: Post[] = useSelector((state: RootState) => state.posts);
 
   const [todoValue, setTodoValue] = useState("");
-
-  const fetchPosts: any = () => {
-    return async function fetchPostsThunk(dispatch: any, getState: any) {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      dispatch({ type: "FETCH_POSTS", paylaod: response.data });
-    };
-  };
 
   useEffect(() => {
     dispatch(fetchPosts());
