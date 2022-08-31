@@ -3,7 +3,7 @@ enum ActionType {
   DELETE_POSTS = "DELETE_POSTS",
 }
 
-interface Post {
+export interface Post {
   userId: number;
   id: number;
   title: string;
@@ -20,6 +20,7 @@ const posts = (state = [], action: Action) => {
       return [...state, ...action.payload];
       break;
     default:
+      return state;
       break;
   }
 };
