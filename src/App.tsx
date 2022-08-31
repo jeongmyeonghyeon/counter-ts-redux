@@ -1,12 +1,11 @@
 import "./App.css";
 
 type Props = {
-  value: any;
   onIncrement: () => void;
   onDecrement: () => void;
 };
 
-function App({ value, onIncrement, onDecrement }: Props) {
+function App({ onIncrement, onDecrement }: Props) {
   return (
     <div className="App">
       {/* Clicked: {value} times */}
